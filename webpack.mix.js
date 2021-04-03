@@ -18,5 +18,7 @@ mix.js('resources/js/app.js', 'public/js').vue()
     ])
     .webpackConfig(require('./webpack.config'));
 
-mix.version();
+if (mix.inProduction()) {
+    mix.version();
+}
 mix.disableNotifications();
