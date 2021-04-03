@@ -97,7 +97,9 @@ export default {
     JetSelect,
   },
 
-  props: ["manageUser"],
+  props: {
+    manageUser: Object,
+  },
 
   setup(props) {
     const form = useForm({

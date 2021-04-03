@@ -28,6 +28,8 @@ export default {
     AppLayout,
   },
 
-  props: ["manageUser"],
+  props: {
+    manageUser: Object
+  },
 };
 </script>
