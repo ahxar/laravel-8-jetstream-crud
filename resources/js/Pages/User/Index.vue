@@ -15,6 +15,12 @@
 
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <jet-input
+          type="text"
+          class="block ml-2 mb-4 w-60"
+          v-model="form.search"
+          placeholder="Cari user..."
+        />
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
           <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -125,17 +131,41 @@
 </template>
 
 <script>
+import { reactive, watchEffect } from "vue";
+import { pickBy } from "lodash";
+import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "@/Layouts/AppLayout";
 import JetButton from "@/Jetstream/Button";
+import JetInput from "@/Jetstream/Input";
 import JetPagination from "@/Components/Pagination";
 
 export default {
   components: {
     AppLayout,
     JetButton,
+    JetInput,
     JetPagination,
   },
 
-  props: ["users", "can"],
+  props: {
+    users: Object,
+    filters: Object,
+  },
+
+  setup(props) {
+    const form = reactive({
+      search: props.filters.search,
+    });
+
+    watchEffect(() => {
+      const query = pickBy(form);
+
+      Inertia.replace(
+        route("users.index", Object.keys(query).length ? query : {})
+      );
+    });
+
+    return { form };
+  },
 };
 </script>

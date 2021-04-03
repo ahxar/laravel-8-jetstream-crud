@@ -11,12 +11,17 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate();
-        return Inertia::render('User/Index', compact('users'));
+        $queries = ['search'];
+        $filters = $request->all($queries);
+
+        $users = User::filter($request->only($queries))->paginate();
+
+        return Inertia::render('User/Index', compact('filters', 'users'));
     }
 
     /**
