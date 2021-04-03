@@ -82,7 +82,12 @@ class UserController extends Controller
             'role' => 'required|string',
         ]);
 
-        $user->update($request->only('name', 'email', 'role'));
+        $user->update($request->only('name', 'email'));
+
+        if (auth()->user()->role === 'admin') {
+            $user->role = $request->role;
+            $user->save();
+        }
 
         return back();
     }

@@ -45,6 +45,7 @@ class HandleInertiaRequests extends Middleware
                     return [
                         'create' => $user->can('create', User::class),
                         'viewAny' => $user->can('viewAny', User::class),
+                        'editRole' => $user->hasRole('admin'),
                     ];
                 }
             ],

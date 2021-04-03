@@ -42,7 +42,10 @@
             </div>
 
             <!-- Role -->
-            <div class="col-span-6 sm:col-span-4">
+            <div
+              class="col-span-6 sm:col-span-4"
+              v-if="$page.props.permission.users.editRole"
+            >
               <jet-label for="role" value="Role" />
               <jet-select
                 id="role"
