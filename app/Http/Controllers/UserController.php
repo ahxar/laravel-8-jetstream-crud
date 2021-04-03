@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate();
         return Inertia::render('User/Index', compact('users'));
     }
 
@@ -72,11 +72,12 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required'
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'role' =>'required|string',
         ]);
 
-        $user->update($request->only('name', 'email'));
+        $user->update($request->only('name', 'email', 'role'));
 
         return back();
     }

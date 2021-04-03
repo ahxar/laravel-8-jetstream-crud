@@ -40,6 +40,18 @@
               />
               <jet-input-error :message="form.errors.email" class="mt-2" />
             </div>
+
+            <!-- Role -->
+            <div class="col-span-6 sm:col-span-4">
+              <jet-label for="role" value="Role" />
+              <jet-select
+                id="role"
+                class="mt-1 block w-full"
+                v-model="form.role"
+                :options="roles"
+              />
+              <jet-input-error :message="form.errors.role" class="mt-2" />
+            </div>
           </template>
 
           <template #actions>
@@ -70,6 +82,7 @@ import JetInputError from "@/Jetstream/InputError";
 import JetLabel from "@/Jetstream/Label";
 import JetActionMessage from "@/Jetstream/ActionMessage";
 import JetSecondaryButton from "@/Jetstream/SecondaryButton";
+import JetSelect from "@/Components/Select";
 
 export default {
   components: {
@@ -81,6 +94,7 @@ export default {
     JetInputError,
     JetLabel,
     JetSecondaryButton,
+    JetSelect,
   },
 
   props: ["user"],
@@ -90,7 +104,18 @@ export default {
       _method: "PUT",
       name: props.user.name,
       email: props.user.email,
+      role: props.user.role,
     });
+    const roles = [
+      {
+        name: "Admin",
+        value: "admin",
+      },
+      {
+        name: "User",
+        value: "user",
+      },
+    ];
 
     const updateProfileInformation = () => {
       form.post(route("users.update", props.user.id), {
@@ -98,7 +123,7 @@ export default {
       });
     };
 
-    return { form, updateProfileInformation };
+    return { form, roles, updateProfileInformation };
   },
 };
 </script>
