@@ -18,11 +18,11 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $queries = ['search'];
-        $filters = $request->all($queries);
 
-        $users = User::filter($request->only($queries))->paginate();
-
-        return Inertia::render('User/Index', compact('filters', 'users'));
+        return Inertia::render('User/Index', [
+            'users' => User::filter($request->only($queries))->paginate(),
+            'filters' => $request->all($queries),
+        ]);
     }
 
     /**
