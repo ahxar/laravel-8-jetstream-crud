@@ -63,6 +63,12 @@
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
+                      <tr
+                        class="flex p-5 text-center"
+                        v-if="!users.data.length"
+                      >
+                        No data
+                      </tr>
                       <tr v-for="user in users.data" :key="user.id">
                         <td class="px-6 py-4 whitespace-nowrap">
                           <div class="flex items-center">
@@ -90,14 +96,10 @@
                             Active
                           </span>
                         </td>
-                        <td
-                          class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                        >
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
                           {{ user.role }}
                         </td>
-                        <td
-                          class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                        >
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
                           {{ user.created_at }}
                         </td>
                         <td
