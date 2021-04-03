@@ -23490,10 +23490,10 @@ var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 );
 
 var _hoisted_22 = {
-  "class": "px-6 py-4 whitespace-nowrap text-sm"
+  "class": "px-6 py-4 whitespace-nowrap text-sm text-gray-900"
 };
 var _hoisted_23 = {
-  "class": "px-6 py-4 whitespace-nowrap text-sm"
+  "class": "px-6 py-4 whitespace-nowrap text-sm text-gray-900"
 };
 var _hoisted_24 = {
   "class": "px-6 py-4 whitespace-nowrap text-right text-sm font-medium"

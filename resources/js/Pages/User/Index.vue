@@ -96,10 +96,14 @@
                             Active
                           </span>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <td
+                          class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                        >
                           {{ user.role }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <td
+                          class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                        >
                           {{ user.created_at }}
                         </td>
                         <td
