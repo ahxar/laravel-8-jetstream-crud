@@ -132,6 +132,7 @@
 
 <script>
 import { reactive, watchEffect } from "vue";
+import { pickBy } from "lodash";
 import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "@/Layouts/AppLayout";
 import JetButton from "@/Jetstream/Button";
@@ -157,8 +158,10 @@ export default {
     });
 
     watchEffect(() => {
+      const query = pickBy(form);
+
       Inertia.replace(
-        route("users.index", Object.keys(form).length ? form : {})
+        route("users.index", Object.keys(query).length ? query : {})
       );
     });
 
