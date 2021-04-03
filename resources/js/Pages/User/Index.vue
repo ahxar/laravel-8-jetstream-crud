@@ -63,11 +63,10 @@
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                      <tr
-                        class="flex p-5 text-center"
-                        v-if="!users.data.length"
-                      >
-                        No data
+                      <tr v-if="!users.data.length">
+                        <td class="p-4 text-center text-gray-900" colspan="5">
+                          No data
+                        </td>
                       </tr>
                       <tr v-for="user in users.data" :key="user.id">
                         <td class="px-6 py-4 whitespace-nowrap">
