@@ -18577,8 +18577,7 @@ __webpack_require__.r(__webpack_exports__);
       search: props.filters.search
     });
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.watchEffect)(function () {
-      var query = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.pickBy)(form);
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.replace(route("users.index", Object.keys(query).length ? query : {}));
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.replace(route("users.index", Object.keys(form).length ? form : {}));
     });
     return {
       form: form
