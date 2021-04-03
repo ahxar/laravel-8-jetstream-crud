@@ -48,7 +48,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return Inertia::render('User/Show', compact('user'));
+        return Inertia::render('User/Show', ['manageUser' => $user]);
     }
 
     /**
@@ -59,7 +59,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return Inertia::render('User/Edit', compact('user'));
+        return Inertia::render('User/Edit', ['manageUser' => $user]);
     }
 
     /**

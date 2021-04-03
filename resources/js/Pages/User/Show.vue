@@ -9,11 +9,11 @@
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-5">
-          Nama: {{ user.name }}<br />
-          Email: {{ user.email }}<br />
-          Role: {{ user.role }}<br />
-          Created At: {{ user.created_at }}<br />
-          Updated At: {{ user.updated_at }}<br />
+          Nama: {{ manageUser.name }}<br />
+          Email: {{ manageUser.email }}<br />
+          Role: {{ manageUser.role }}<br />
+          Created At: {{ manageUser.created_at }}<br />
+          Updated At: {{ manageUser.updated_at }}<br />
         </div>
       </div>
     </div>
@@ -28,6 +28,6 @@ export default {
     AppLayout,
   },
 
-  props: ["user"],
+  props: ["manageUser"],
 };
 </script>

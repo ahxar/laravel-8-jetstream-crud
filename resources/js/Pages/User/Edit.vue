@@ -97,14 +97,14 @@ export default {
     JetSelect,
   },
 
-  props: ["user"],
+  props: ["manageUser"],
 
   setup(props) {
     const form = useForm({
       _method: "PUT",
-      name: props.user.name,
-      email: props.user.email,
-      role: props.user.role,
+      name: props.manageUser.name,
+      email: props.manageUser.email,
+      role: props.manageUser.role,
     });
     const roles = [
       {
@@ -118,7 +118,7 @@ export default {
     ];
 
     const updateProfileInformation = () => {
-      form.post(route("users.update", props.user.id), {
+      form.post(route("users.update", props.manageUser.id), {
         preserveScroll: true,
       });
     };
