@@ -51,7 +51,7 @@
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                      <tr v-for="user in users" :key="user.id">
+                      <tr v-for="user in users.data" :key="user.id">
                         <td class="px-6 py-4 whitespace-nowrap">
                           <div class="flex items-center">
                             <div class="flex-shrink-0 h-10 w-10">
@@ -100,10 +100,9 @@
                           >
                         </td>
                       </tr>
-
-                      <!-- More items... -->
                     </tbody>
                   </table>
+                  <jet-pagination class="m-5" :links="users.links" />
                 </div>
               </div>
             </div>
@@ -117,11 +116,13 @@
 <script>
 import AppLayout from "@/Layouts/AppLayout";
 import JetButton from "@/Jetstream/Button";
+import JetPagination from "@/Components/Pagination";
 
 export default {
   components: {
     AppLayout,
     JetButton,
+    JetPagination,
   },
 
   props: ["users", "can"],
