@@ -30,6 +30,13 @@
                 >
                   Users
                 </jet-nav-link>
+                <jet-nav-link
+                  :href="route('posts.index')"
+                  :active="route().current('posts.*')"
+                  v-if="$page.props.permission.posts.viewAny"
+                >
+                  Posts
+                </jet-nav-link>
               </div>
             </div>
 
@@ -257,6 +264,13 @@
               v-if="$page.props.permission.users.viewAny"
             >
               Users
+            </jet-responsive-nav-link>
+            <jet-responsive-nav-link
+              :href="route('posts.index')"
+              :active="route().current('posts.*')"
+              v-if="$page.props.permission.posts.viewAny"
+            >
+              Posts
             </jet-responsive-nav-link>
           </div>
 
