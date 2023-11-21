@@ -3611,6 +3611,7 @@
         },
         {
             "name": "symfony/error-handler",
+
             "version": "v5.4.26",
             "source": {
                 "type": "git",
